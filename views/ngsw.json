@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1693490541042,
+  "timestamp": 1693491403724,
   "appData": [
     "/index.html",
     "/*.bundle.css",
@@ -675,14 +675,18 @@
         "/favicon.ico",
         "/index.html",
         "/main.962780daa7024507.js",
+        "/main.b11f2a90e8cd5d20.js",
+        "/ngsw-worker.js",
         "/polyfills.dfd6e5c9f05c4aec.js",
         "/runtime.f5863844d6839868.js",
+        "/safety-worker.js",
         "/scripts.c35984afef709733.js",
         "/src_app_modules_auth_auths_module_ts.f8de2551aac8e723.js",
         "/src_app_modules_dashboards_dashs_module_ts.fbe36efc430b8f2d.js",
         "/src_app_modules_error_errors_module_ts.a4b39fcd4d726720.js",
         "/src_app_modules_user_users_module_ts.eb177602687b04f3.js",
-        "/styles.ac413658b2c09bcd.css"
+        "/styles.ac413658b2c09bcd.css",
+        "/worker-basic.min.js"
       ],
       "patterns": []
     },
@@ -1360,10 +1364,13 @@
     "/assets/scss/variables/_variables.scss": "fbb6a240289340f26354c2d1835f5bf72f29b392",
     "/common.bdb071a52ac91538.js": "4fd2121874f508e6afacd9231e6f2553280893f1",
     "/favicon.ico": "f414611863ed13d1aff8102dd500a0c1b90463cd",
-    "/index.html": "922d65bed72700a5f481e9bc150f4ae10a0ec04d",
+    "/index.html": "f6d2910f5ae14045dda7a35a1b743f7639d79980",
     "/main.962780daa7024507.js": "d5f7564e0d6ee698a0cb15b8513ffd5d1756ece5",
+    "/main.b11f2a90e8cd5d20.js": "8cb4628a12b86c9b5873e58582f40f7f1393acc8",
+    "/ngsw-worker.js": "004982c728d98c3f03ceb1a7c14ff52f76b99ca1",
     "/polyfills.dfd6e5c9f05c4aec.js": "40efa36a3192f68a60a35ea0a05d45f72258d889",
     "/runtime.f5863844d6839868.js": "17c3b68cb47f2078187356a543348984fca47efc",
+    "/safety-worker.js": "004982c728d98c3f03ceb1a7c14ff52f76b99ca1",
     "/scripts.c35984afef709733.js": "8146da5fafeafaf6293b94e5161bbc230bbaee55",
     "/src_app_modules_auth_auths_module_ts.f8de2551aac8e723.js": "4c4977dd0aea394bd131dd267c3eba3d662a5525",
     "/src_app_modules_dashboards_dashs_module_ts.fbe36efc430b8f2d.js": "482513155956d2c0a10c4e84209f407bfa797e25",
@@ -1373,7 +1380,8 @@
     "/tabler-icons.12df9861f31538d0.ttf": "91cfe0d2996bfc02eebb5ced3274a677616caedd",
     "/tabler-icons.64c240d2cff228f7.woff2": "cc5dfd994670ae10a8fc2fe7fbcebca11bba63dd",
     "/tabler-icons.c19c07e3736ab2d8.woff": "60203ff7dc2d2124c2fe53b2bcbe37ab6855e990",
-    "/tabler-icons.d4cec53499d497e3.svg": "60e6856383ce8eec482020651e10eb592ad10500"
+    "/tabler-icons.d4cec53499d497e3.svg": "60e6856383ce8eec482020651e10eb592ad10500",
+    "/worker-basic.min.js": "004982c728d98c3f03ceb1a7c14ff52f76b99ca1"
   },
   "navigationUrls": [
     {
