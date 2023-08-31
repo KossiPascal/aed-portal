@@ -26,8 +26,8 @@
     "build": "ng build --service-worker --build-optimizer --optimization --configuration production --aot --output-hashing=all --named-chunks --stats-json",
     
     "postbuild": "cd ../ && git remote add origin https://github.com/KossiPascal/aed-portal.git && git status",
-
-    "data": "cd ../ && git status && git add . && git status && git commit -m \"Initial Commit\" && git status && git remote add origin --deploy-url=https://github.com/KossiPascal/aed-portal.git && git push -u origin main && git status",
+    
+    "data": "cd ../ && git status && git add . && git status && git commit -m \"Initial Commit\" && git status && git remote add origin https://github.com/KossiPascal/aed-portal.git && git push -u origin main && git status",
     "build2": "sudo rm -rf .angular/cache && ng build --service-worker --build-optimizer --optimization --configuration production --aot --deploy-url=https://portal-integratehealth.org:3030/ --extract-css=true ",
     "watch": "ng build --watch --configuration development",
     "precache": "sw-precache --verbose --config=sw-precache-config.js"
