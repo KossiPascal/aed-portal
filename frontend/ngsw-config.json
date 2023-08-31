@@ -1,0 +1,34 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "appData": ["/index.html", "/*.bundle.css", "/*.bundle.js", "/*.chunk.js"],
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js",
+          "/assets/**",
+          "/*.bundle.css", 
+          "/*.bundle.js", 
+          "/*.chunk.js"],
+        "urls": []
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+        ]
+      }
+    }
+  ]
+}

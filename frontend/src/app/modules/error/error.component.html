@@ -1,0 +1,14 @@
+<div class="container">
+
+  <h2 *ngIf="error.title!='500'" class="headline text-warning"> {{error.title}}</h2>
+<h3 *ngIf="error.title!='500'"><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
+
+    <h2 *ngIf="error.title=='500'" class="headline text-danger"> {{error.title}}</h2>
+    <h3 *ngIf="error.title=='500'"><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Something went wrong.
+    </h3>
+
+
+    <br> <br>
+    <button class="btn btn-info btn-block btn-lg" (click)="returnBack();"> Accueil </button>
+
+  </div>

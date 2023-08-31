@@ -1,0 +1,219 @@
+<br>
+<br>
+<br>
+
+
+<div class="row">
+    <div class="col-lg-12 d-flex align-items-stretch">
+        <div class="card w-100">
+            <div class="card-body p-4">
+                <!-- <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5> -->
+
+
+                <!-- PAGE TITLE -->
+                <div class="card-title fw-semibold">
+                    <!-- <button (click)="CreateUser()"></button> -->
+                    <div class="card-body">
+                        <span style="float: left;" class="fas fa-user"> Users List</span>
+
+                        <button (click)="CreateUser('user-modal')" style="float: right;" type="button" class="btn btn-success m-1"
+                            data-toggle="modal" data-target="#modal-default">
+                            Add User
+                        </button>
+                    </div>
+                </div>
+                <!-- END PAGE TITLE -->
+                <div class="table-responsive">
+                    <table class="table text-nowrap mb-0 align-middle">
+                        <thead class="text-dark fs-4">
+                            <tr>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">id</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">N°</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Username</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Full name</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Email</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Role</h6>
+                                </th>
+                                <th colspan="2" class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Actions</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">InActifs</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">IsSuperAdmin</h6>
+                                </th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody *ngFor="let user of users$; let index = index; let isFirst = first; let isOdd = odd;">
+                            <tr>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">{{ user.id }}</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">{{ index+1 }}</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">{{ user.username }}</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">{{ user.fullname }}</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">{{ user.email }}</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">{{ user.roles }}</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <i (click)="EditUser(user, 'user-modal')" style="font-size: 30px;cursor: pointer; color: orange;"
+                                        class="ti ti-edit"></i>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <i (click)="SelectUserToDelete(user, 'delete-user-modal')" style="font-size: 30px;cursor: pointer; color: red;"
+                                        class="ti ti-trash"></i>
+
+
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0"><span style='font-size:20px;'>{{user.isActive ? '' : '&#10003;'}}</span></h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0"><span style='font-size:20px;'>{{user.isSuperAdmin ? '' : '&#10003;'}}</span></h6>
+                                </td>
+
+                                <!-- <td>{{ isFirst }}</td>
+                                    <td>{{ isOdd }}</td> -->
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal micromodal-slide" id="user-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="user-modal-title">
+            <form [formGroup]="userForm" (ngSubmit)="register('user-modal')" novalidate class="form-horizontal">
+
+                <header class="modal__header">
+                    <h2 class="modal__title" id="user-modal-title">
+                        <img height="30" class="modal-title" src="{{ APP_LOGO }}" alt="" srcset="">
+                        <strong style="text-align: center;" class="login-box-msg"><span class=" btn-{{ isEditMode?'warning':'success' }}">{{ isEditMode ? 'Modifier un utilisateur' :'Ajouter un utilisateur' }}</span></strong>
+                    </h2>
+                    <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+
+                <main class="modal__content" id="user-modal-content">
+                    <p style="width: 500px;" class="login-box-msg"><strong>{{ message }}</strong></p>
+
+
+                    <label *ngIf="isEditMode" for="username">Username</label>
+                    <div class="input-group mb-3">
+                        <input id="username" type="text" class="form-control" placeholder="Username" formControlName="username" />
+                    </div>
+
+                    <label *ngIf="isEditMode" for="fullname">Full Name</label>
+                    <div class="input-group mb-3">
+                        <input id="fullname" type="text" class="form-control" placeholder="Full Name"
+                            formControlName="fullname" />
+                    </div>
+
+                    <label *ngIf="isEditMode" for="email">Email</label>
+                    <div class="input-group mb-3">
+                        <input id="email" type="email" class="form-control" placeholder="Email"
+                            formControlName="email" />
+                    </div>
+
+                    <label *ngIf="isEditMode" for="password">Password</label>
+                    <div class="input-group mb-3">
+                        <input id="password" type="password" class="form-control" placeholder="Password"
+                            formControlName="password" />
+                    </div>
+
+                    <label *ngIf="isEditMode" for="passwordConfirm">Password COnfirm</label>
+                    <div class="input-group mb-3">
+                        <input id="passwordConfirm" type="password" class="form-control" placeholder="Retype password"
+                            formControlName="passwordConfirm" />
+
+                    </div>
+                    <div *ngIf="passwordMatchError()" class="btn btn-danger">
+                        Password does not match
+                    </div>
+
+                    <label *ngIf="isEditMode" for="passwordConfirm">Rôles</label>
+                    <div class="input-group mb-3">
+                        <select class="form-control" multiple="multiple" formControlName="roles">
+                            <!-- <option value="">Select All</option> -->
+                            <option *ngFor="let role of roles$" value="{{role}}">
+                                {{ role }}
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="input-group mb-3">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="isActive" formControlName="isActive">
+                                    <label for="isActive">Activer</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+
+                <footer class="modal__footer">
+                    <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+                    <button style="float: right;" [disabled]="!userForm.valid" type="submit" class="modal__btn modal__btn-{{isEditMode ? 'warning': 'primary'}}">{{isEditMode ? 'Modifier': 'Sauvegarder'}}</button>
+                </footer>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal micromodal-slide" id="delete-user-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="delete-user-modal-title">
+            <header class="modal__header">
+                <h2 class="modal__title" id="delete-user-modal-title">
+                    Suppression d'utilisateur
+                </h2>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+            </header>
+            <main class="modal__content" id="delete-user-modal-content">
+                Cette action est iréversible! Êtes vous sûr de procéder à la suppression ?
+
+                <p class="login-box-msg"><strong>{{ message }}</strong></p>
+
+            </main>
+            <footer class="modal__footer">
+                <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Annuler</button>
+                <button style="float: right;" (click)="DeleteUser()" class="modal__btn modal__btn-danger">Oui Supprimer</button>
+            </footer>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div (mousedown)="pageTouched($event)" (mouseenter)="pageTouched($event)" (mouseup)="pageTouched($event)"
+  (mouseleave)="pageTouched($event)" (click)="pageTouched($event)" class="box">
+
+<!--  Body Wrapper -->
+<div  *ngIf="isAuthenticated && !errorFound" class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- Sidebar Start -->
+  <aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div>
+      <div class="brand-logo d-flex align-items-center justify-content-between">
+        <div class="text-nowrap logo-img">
+          <img src="../assets/images/logos/logo.png" width="180" alt="" />
+        </div>
+        <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+          <i class="ti ti-x fs-8"></i>
+        </div>
+      </div>
+      <!-- Sidebar navigation-->
+
+      <app-left-nav></app-left-nav>
+
+      <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+  </aside>
+  <!--  Sidebar End -->
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+    <!--  Header Start -->
+    <header class="app-header">
+      <app-top-nav></app-top-nav>
+      
+    </header>
+    <!--  Header End -->
+
+    <ng-container *ngTemplateOutlet="template"></ng-container>
+
+  </div>
+</div>
+
+
+
+
+    
+<div *ngIf="!isAuthenticated || errorFound">
+  <ng-container *ngTemplateOutlet="template"></ng-container>
+</div>
+
+
+<ng-template #template>
+<router-outlet></router-outlet>
+</ng-template>
+
+</div>
